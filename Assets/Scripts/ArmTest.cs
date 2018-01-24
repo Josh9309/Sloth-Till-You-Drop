@@ -11,7 +11,13 @@ public class ArmTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 attractForce = Vector3.MoveTowards(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 10 * Time.deltaTime);
-        gameObject.GetComponent<Rigidbody2D>().AddForce(attractForce*1, ForceMode2D.Force);
-	}
+        //Determine mouse position
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //Determine if arm is left or right of mouse
+        if(gameObject.transform.position.x < mousePos.x)
+            GetComponent<Rigidbody2D>().AddTorque(-20);
+        else
+            GetComponent<Rigidbody2D>().AddTorque(20);
+    }
 }

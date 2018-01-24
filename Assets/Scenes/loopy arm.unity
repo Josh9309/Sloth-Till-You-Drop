@@ -544,10 +544,10 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -120
+    m_UpperAngle: 65
 --- !u!50 &732687006
 Rigidbody2D:
   serializedVersion: 4
@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 807563057}
   - component: {fileID: 807563059}
   - component: {fileID: 807563058}
+  - component: {fileID: 807563060}
   m_Layer: 0
   m_Name: arm
   m_TagString: Untagged
@@ -711,16 +712,16 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.19, y: -0.5}
-  m_ConnectedAnchor: {x: -1.8478066, y: -4.6610346}
+  m_Anchor: {x: 0.18680751, y: -0.506385}
+  m_ConnectedAnchor: {x: -1.8549005, y: -4.675223}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -45
+    m_UpperAngle: 65
 --- !u!50 &807563059
 Rigidbody2D:
   serializedVersion: 4
@@ -741,6 +742,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &807563060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807563055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4a1a086f86600409e1805e07627c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1724680374
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +763,7 @@ GameObject:
   - component: {fileID: 1724680378}
   - component: {fileID: 1724680377}
   - component: {fileID: 1724680376}
+  - component: {fileID: 1724680375}
   m_Layer: 0
   m_Name: testCursor
   m_TagString: Untagged
@@ -758,6 +771,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!250 &1724680375
+PointEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724680374}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceMagnitude: -10
+  m_ForceVariation: 0
+  m_DistanceScale: 1
+  m_ForceSource: 0
+  m_ForceTarget: 0
+  m_ForceMode: 0
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!114 &1724680376
 MonoBehaviour:
   m_ObjectHideFlags: 0
