@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ArmTest : MonoBehaviour {
 
+    [SerializeField] private float force = 10.0f;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,8 +18,8 @@ public class ArmTest : MonoBehaviour {
 
         //Determine if arm is left or right of mouse
         if(gameObject.transform.position.x < mousePos.x)
-            GetComponent<Rigidbody2D>().AddTorque(-20);
+            GetComponent<Rigidbody2D>().AddTorque(-force);
         else
-            GetComponent<Rigidbody2D>().AddTorque(20);
+            GetComponent<Rigidbody2D>().AddTorque(force);
     }
 }
