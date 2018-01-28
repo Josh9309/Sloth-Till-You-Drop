@@ -19,7 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4057631939382620}
+  - component: {fileID: 20760073558524078}
   - component: {fileID: 114290270475433800}
+  - component: {fileID: 114154544863279732}
   m_Layer: 0
   m_Name: TreeGenerator
   m_TagString: Untagged
@@ -33,13 +35,60 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1785462949056352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20760073558524078
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785462949056352}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.1694961, g: 0.19794369, b: 0.24264705, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!114 &114154544863279732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785462949056352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b682064bf2183c4e828916178a116eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!114 &114290270475433800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,15 +101,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeSegmentsPrefab:
-  - {fileID: 1999852441443776, guid: 0f97025a2cb524d42a05ec9a7c64033e, type: 2}
-  - {fileID: 1867898883781524, guid: 4c985070ae555854bb62b9e13082718e, type: 2}
-  - {fileID: 1556578114318332, guid: ec385c68530b1bc47b2893047f192bf5, type: 2}
-  - {fileID: 1038768495058556, guid: 7e73f6771842b524db37b790adee6536, type: 2}
+  - {fileID: 1944777925520848, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1837773993802086, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1508033198246468, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1277009736001052, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1708361006723088, guid: c07cb48a592bb5149844de577872a93d, type: 2}
   leftTreeBranchesPrefab:
-  - {fileID: 1112347345805406, guid: bbf0f8f6c8b16284ca55ff64126e352c, type: 2}
-  - {fileID: 1171449157634410, guid: 23b0bec9a48479744a55013417c1e082, type: 2}
-  - {fileID: 1431046250081092, guid: e0465c46d85d3cc4191aa3092858ec6d, type: 2}
+  - {fileID: 1870793209120154, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1335800755502974, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1699515782885170, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1024242718488176, guid: c07cb48a592bb5149844de577872a93d, type: 2}
   rightTreeBranchesPrefab:
-  - {fileID: 1214267299544440, guid: c755bff121c9fbc4b933253d88247e26, type: 2}
-  - {fileID: 1981877433595066, guid: 59551ff415aa3aa42a36d5f3560bde40, type: 2}
-  - {fileID: 1069346929291970, guid: 4d8259868c257544e90e6ece2214152a, type: 2}
+  - {fileID: 1768690348787116, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1210029156492352, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1247481671513592, guid: c07cb48a592bb5149844de577872a93d, type: 2}
+  - {fileID: 1290651928991458, guid: c07cb48a592bb5149844de577872a93d, type: 2}
