@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 199820551737582044}
   - component: {fileID: 50454813219066024}
   - component: {fileID: 58893509689624802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935858448567084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.09226, y: -3.30269, z: -14}
+  m_LocalPosition: {x: 7.734723, y: 0.034847498, z: -14}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 5
 --- !u!198 &198813276855842036
 ParticleSystem:
   m_ObjectHideFlags: 1

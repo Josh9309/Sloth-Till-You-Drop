@@ -10,15 +10,22 @@ public class Paw : MonoBehaviour {
     private Vector2 ultimateForce;
     private Vector2 velocity;
     private Vector2 acceleration;
+    private List<GameObject> leaves;
+
+    public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
     //Weights
     [SerializeField] private float mouseWeight = 1.3f;
     [SerializeField] private float leafWeight = .8f;
 
-    [SerializeField] private LeafSpawner spawner;
+    // How close a leaf has to be in order for the paw to seek it
+    //[SerializeField] private float leafNoticeRadius = 5f;
+
+    //[SerializeField] private LeafSpawner spawner;
 
 	// Use this for initialization
 	void Start () {
+        leaves = new List<GameObject>();
         rBody = GetComponent<Rigidbody2D>();	
 	}
 	
@@ -33,7 +40,9 @@ public class Paw : MonoBehaviour {
         ultimateForce += Arrive(mousePos,3.0f) * mouseWeight;
 
         //Get force to any leafs
-        ultimateForce += LeafForce() *leafWeight; 
+        if(leaves.Count > 0)
+            ultimateForce += LeafForce() *leafWeight; 
+
         //Limit steering force
         ultimateForce = Vector2.ClampMagnitude(ultimateForce, 5.0f);
 
@@ -47,6 +56,12 @@ public class Paw : MonoBehaviour {
         acceleration = Vector2.zero;
 
 	}
+
+    /*private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, leafNoticeRadius);
+    }*/
 
     private Vector2 Seek(Vector3 target)
     {
@@ -77,15 +92,26 @@ public class Paw : MonoBehaviour {
 
     private Vector2 LeafForce()
     {
-        Vector2 leafSeekForce = Vector2.zero;
+        //Vector2 leafSeekForce = Vector2.zero;
 
-        foreach (GameObject leaf in spawner.leafs)
+        /* foreach (GameObject leaf in spawner.leafs)
+         {
+             if ((leaf.transform.position - transform.position).magnitude > leafNoticeRadius)
+             {
+                 print((leaf.transform.position - transform.position).magnitude);
+                 break;
+             }
+             leafSeekForce += Seek(leaf.transform.position);
+         }*/
+        GameObject closest = leaves[0];
+
+        foreach (GameObject leaf in leaves)
         {
-            if ((leaf.transform.position - transform.position).magnitude > 15.0f)
-                break;
-            leafSeekForce += Seek(leaf.transform.position);
+            if ((leaf.transform.position - transform.position).magnitude
+                < (closest.transform.position - transform.position).magnitude)
+                closest = leaf;
         }
 
-        return leafSeekForce;
+        return Seek(closest.transform.position);
     }
 }
