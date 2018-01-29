@@ -107,8 +107,8 @@ public class Paw : MonoBehaviour {
 
         foreach (GameObject leaf in leaves)
         {
-            if ((leaf.transform.position - transform.position).magnitude
-                < (closest.transform.position - transform.position).magnitude)
+            if (Mathf.Abs((leaf.transform.position - transform.position).magnitude)
+                < Mathf.Abs((closest.transform.position - transform.position).magnitude))
                 closest = leaf;
         }
 
