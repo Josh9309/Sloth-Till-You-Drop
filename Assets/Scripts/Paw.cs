@@ -17,6 +17,9 @@ public class Paw : MonoBehaviour {
     private UnityEngine.UI.Image slothHead;
     private bool movingCamera;
 
+    public float maxSpeed;
+    public float arrivalSpeed;
+
     public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
     //Weights
@@ -67,14 +70,14 @@ public class Paw : MonoBehaviour {
             ultimateForce = Vector2.zero;
 
             //get seek force to mouse
-            ultimateForce += Arrive(mousePos, 3.0f) * mouseWeight;
+            ultimateForce += Arrive(mousePos, arrivalSpeed) * mouseWeight;
 
             //Get force to any leafs
             if (leaves.Count > 0)
                 ultimateForce += LeafForce() * leafWeight;
 
             //Limit steering force
-            ultimateForce = Vector2.ClampMagnitude(ultimateForce, 5.0f);
+            ultimateForce = Vector2.ClampMagnitude(ultimateForce, maxSpeed);
 
             //apply acceleration 
             acceleration = acceleration + (ultimateForce / rBody.mass);

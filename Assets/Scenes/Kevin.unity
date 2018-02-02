@@ -151,6 +151,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114983104203756116, guid: edb30e690dd04ac4bb35eed341391002,
+        type: 2}
+      propertyPath: pawSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114983104203756116, guid: edb30e690dd04ac4bb35eed341391002,
+        type: 2}
+      propertyPath: mouseWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114983104203756116, guid: edb30e690dd04ac4bb35eed341391002,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114983104203756116, guid: edb30e690dd04ac4bb35eed341391002,
+        type: 2}
+      propertyPath: arrivalSpeed
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edb30e690dd04ac4bb35eed341391002, type: 2}
   m_IsPrefabParent: 0
@@ -206,12 +226,12 @@ Prefab:
     - target: {fileID: 224976610262091318, guid: 0776d430f9fd286409d8c1590ef45dba,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 482
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 224976610262091318, guid: 0776d430f9fd286409d8c1590ef45dba,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 271
+      value: 211
       objectReference: {fileID: 0}
     - target: {fileID: 224976610262091318, guid: 0776d430f9fd286409d8c1590ef45dba,
         type: 2}
