@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour {
-
-    private Paw sloth;
+public class Target : MonoBehaviour
+{
     private int levelCount;
     private System.Random rand;
     public GameObject[,] treeGenMatrix;
 
 	// Use this for initialization
 	void Start () {
-        sloth = FindObjectOfType<Paw>();
-        levelCount = sloth.level;
+        levelCount = 0;
         rand = new System.Random();
         treeGenMatrix = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GenerateTree>().treeMatrix;
         MoveTarget();
@@ -66,6 +64,5 @@ public class Target : MonoBehaviour {
         }
 
         levelCount += i;
-        Debug.Log(levelCount);
     }
 }
