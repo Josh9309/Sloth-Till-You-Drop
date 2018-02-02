@@ -11,6 +11,7 @@ public class Paw : MonoBehaviour {
     private Vector2 velocity;
     private Vector2 acceleration;
     private List<GameObject> leaves;
+    private Camera cam; //Camera for mouse position and climbing
 
     public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
@@ -113,5 +114,14 @@ public class Paw : MonoBehaviour {
         }
 
         return Seek(closest.transform.position);
+    }
+
+    //Move up the tree
+    private void Climb()
+    {
+        //Paw
+        //Head
+        //Camera
+
     }
 }

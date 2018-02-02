@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114154544863279732}
   m_Layer: 0
   m_Name: TreeGenerator
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
