@@ -15,6 +15,7 @@ public class Paw : MonoBehaviour {
     private int mouseDownFrameCounter = 120;
     public int level;
     public GameObject target;
+    public GameObject slothHead;
 
     public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
@@ -33,7 +34,9 @@ public class Paw : MonoBehaviour {
         rBody = GetComponent<Rigidbody2D>();
         level = 0;
         target = GameObject.FindGameObjectWithTag("Player");
-	}
+        cam = Camera.main;
+        //slothHead = gameObject.find
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,7 +50,7 @@ public class Paw : MonoBehaviour {
             mouseDownFrameCounter = 120;
         }
 
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         if (SphereCollision(target.transform.position) && (mouseDownFrameCounter > 0 && mouseDownFrameCounter < 120))
         {

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50715306253475912}
   m_Layer: 0
   m_Name: Paw
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawSpeed: 20
+  level: 0
+  target: {fileID: 0}
   mouseWeight: 25
   leafWeight: 19
 --- !u!212 &212039575036068778
