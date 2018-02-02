@@ -54,9 +54,11 @@ public class Paw : MonoBehaviour {
 
         if (SphereCollision(target.transform.position) && (mouseDownFrameCounter > 0 && mouseDownFrameCounter < 120))
         {
-            ultimateForce = Vector2.zero;
-            rBody.velocity = Vector2.zero;
-            acceleration = Vector2.zero;
+            //ultimateForce = Vector2.zero;
+            //rBody.velocity = Vector2.zero;
+            //acceleration = Vector2.zero;
+
+            target.GetComponent<Target>().MoveTarget();
         }
         else
         {

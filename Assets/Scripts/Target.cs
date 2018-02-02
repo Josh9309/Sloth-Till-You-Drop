@@ -23,35 +23,49 @@ public class Target : MonoBehaviour {
 		
 	}
 
-    //Called by Paw when click/drag succeeds
-    //Adds to level count, moves the target
-    void Climb()
-    {
-        levelCount++;
-        MoveTarget();
-    }
-
-    void MoveTarget()
+    public void MoveTarget()
     {
         GameObject branch;
+        int i = 1;
 
-        //Makes it so the target doesn't default to one side
-        int branchCheck = rand.Next(0, 10);
-        if(branchCheck % 2 == 0)
+        while(i > 0)
         {
-            branch = treeGenMatrix[levelCount + 1, 0];
-            if(branch.tag == "Branch")
+            //Makes it so the target doesn't default to one side
+            int branchCheck = rand.Next(0, 10);
+            if (branchCheck % 2 == 0)
             {
-                this.transform.position = new Vector2(-6.65f, branch.transform.position.y);
+                branch = treeGenMatrix[levelCount + i, 0];
+                if (branch.tag == "Branch")
+                {
+                    transform.position = new Vector2(-6.65f, branch.transform.position.y);
+                    break;
+                }
+                branch = treeGenMatrix[levelCount + i, 2];
+                if (branch.tag == "Branch")
+                {
+                    transform.position = new Vector2(6.65f, branch.transform.position.y);
+                    break;
+                }
             }
-        }
-        else
-        {
-            branch = treeGenMatrix[levelCount + 1, 2];
-            if (branch.tag == "Branch")
+            else
             {
-                this.transform.position = new Vector2(6.65f, branch.transform.position.y);
+                branch = treeGenMatrix[levelCount + i, 2];
+                if (branch.tag == "Branch")
+                {
+                    transform.position = new Vector2(6.65f, branch.transform.position.y);
+                    break;
+                }
+                branch = treeGenMatrix[levelCount + i, 0];
+                if (branch.tag == "Branch")
+                {
+                    transform.position = new Vector2(-6.65f, branch.transform.position.y);
+                    break;
+                }
             }
+            i++;
         }
+
+        levelCount += i;
+        Debug.Log(levelCount);
     }
 }

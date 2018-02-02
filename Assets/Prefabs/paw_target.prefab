@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4045987810305696}
   - component: {fileID: 212734486108256006}
+  - component: {fileID: 114490018689489360}
   m_Layer: 0
   m_Name: paw_target
   m_TagString: Player
@@ -34,12 +35,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1291031646255778}
   m_LocalRotation: {x: -0, y: -0, z: -0.10898857, w: 0.99404305}
-  m_LocalPosition: {x: 2.74, y: -1.02, z: 0}
+  m_LocalPosition: {x: 1.5850852, y: -0.22389323, z: 0}
   m_LocalScale: {x: 0.14771426, y: 0.14771426, z: 0.14771426}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -12.514001}
+--- !u!114 &114490018689489360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1291031646255778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520128d85beffdd48aec82b2f4005553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212734486108256006
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -73,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 329cd4c8af5ee05469d3bf2dbb597010, type: 3}
   m_Color: {r: 0.8161765, g: 0.10202206, b: 0.23500247, a: 1}
   m_FlipX: 0

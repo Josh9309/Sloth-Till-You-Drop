@@ -70,9 +70,10 @@ public class GenerateTree : MonoBehaviour
             treeMatrix[i, 2].transform.position = new Vector3(treeMatrix[i, 2].transform.position.x, (i * stumpSizeY) - stumpSizeY + rand.Next(-1, 1), 0); //Right branch
 
             //Instantiate the tree
-            Instantiate(treeMatrix[i, 0]);
-            Instantiate(treeMatrix[i, 1]);
-            Instantiate(treeMatrix[i, 2]);
+            //Yeah
+            treeMatrix[i, 0] = Instantiate(treeMatrix[i, 0]);
+            treeMatrix[i, 1] = Instantiate(treeMatrix[i, 1]);
+            treeMatrix[i, 2] = Instantiate(treeMatrix[i, 2]);
         }
         
         triggerBounds = treeMatrix[23, 1].GetComponent<Renderer>().bounds; //Get the bounds for the trigger
@@ -128,11 +129,12 @@ public class GenerateTree : MonoBehaviour
                 treeMatrix[i, 0].transform.position = new Vector3(treeMatrix[i, 0].transform.position.x, (i * stumpSizeY) + (spacingValue * stumpSizeY) + rand.Next(-1, 1), 0); //Left branch
                 treeMatrix[i, 1].transform.position = new Vector3(treeMatrix[i, 1].transform.position.x, (i * stumpSizeY) + (spacingValue * stumpSizeY), 0); //Trunk
                 treeMatrix[i, 2].transform.position = new Vector3(treeMatrix[i, 2].transform.position.x, (i * stumpSizeY) + (spacingValue * stumpSizeY) + rand.Next(-1, 1), 0); //Right branch
-                
+
                 //Instantiate the tree
-                Instantiate(treeMatrix[i, 0]);
-                Instantiate(treeMatrix[i, 1]);
-                Instantiate(treeMatrix[i, 2]);
+                //Yeah
+                treeMatrix[i, 0] = Instantiate(treeMatrix[i, 0]);
+                treeMatrix[i, 1] = Instantiate(treeMatrix[i, 1]);
+                treeMatrix[i, 2] = Instantiate(treeMatrix[i, 2]);
             }
 
             triggerBounds = treeMatrix[23, 1].GetComponent<Renderer>().bounds; //Get the bounds for the trigger
