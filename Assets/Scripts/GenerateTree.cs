@@ -11,7 +11,7 @@ public class GenerateTree : MonoBehaviour
     [SerializeField] private GameObject[] rightTreeBranchesPrefab = new GameObject[4]; //Hella dumb to duplicate like this, but since duplicates in a single array of branches don't come out as unique objects this is what I'm doing
 
     private const byte TREEMATRIXSIZE = 25;
-    private GameObject[,] treeMatrix; //The tree
+    public GameObject[,] treeMatrix; //The tree
     private Bounds triggerBounds; //The bounds of the trigger to generate the next tree segments
 
     private Renderer stumpRenderer; //Size of a stump segment, for spacing
