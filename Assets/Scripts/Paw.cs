@@ -11,6 +11,9 @@ public class Paw : MonoBehaviour {
     private Vector2 velocity;
     private Vector2 acceleration;
     private List<GameObject> leaves;
+    private int mouseDownFrameCounter = 120;
+    public int level;
+    public GameObject target;
 
     public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
@@ -26,34 +29,54 @@ public class Paw : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         leaves = new List<GameObject>();
-        rBody = GetComponent<Rigidbody2D>();	
+        rBody = GetComponent<Rigidbody2D>();
+        level = 0;
+        target = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //get current mouse position
+        if(Input.GetMouseButton(0))
+        {
+            mouseDownFrameCounter--;
+        }
+        else
+        {
+            mouseDownFrameCounter = 120;
+        }
+
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        ultimateForce = Vector2.zero;
+        if (SphereCollision(target.transform.position) && (mouseDownFrameCounter > 0 && mouseDownFrameCounter < 120))
+        {
+            ultimateForce = Vector2.zero;
+            rBody.velocity = Vector2.zero;
+            acceleration = Vector2.zero;
+        }
+        else
+        {
+            ultimateForce = Vector2.zero;
 
-        //get seek force to mouse
-        ultimateForce += Arrive(mousePos,3.0f) * mouseWeight;
+            //get seek force to mouse
+            ultimateForce += Arrive(mousePos, 3.0f) * mouseWeight;
 
-        //Get force to any leafs
-        if(leaves.Count > 0)
-            ultimateForce += LeafForce() *leafWeight; 
+            //Get force to any leafs
+            if (leaves.Count > 0)
+                ultimateForce += LeafForce() * leafWeight;
 
-        //Limit steering force
-        ultimateForce = Vector2.ClampMagnitude(ultimateForce, 5.0f);
+            //Limit steering force
+            ultimateForce = Vector2.ClampMagnitude(ultimateForce, 5.0f);
 
-        //apply acceleration 
-        acceleration = acceleration + (ultimateForce / rBody.mass);
+            //apply acceleration 
+            acceleration = acceleration + (ultimateForce / rBody.mass);
 
-        velocity += acceleration * Time.deltaTime;
-        velocity = Vector2.ClampMagnitude(velocity, pawSpeed);
+            velocity += acceleration * Time.deltaTime;
+            velocity = Vector2.ClampMagnitude(velocity, pawSpeed);
 
-        rBody.velocity = velocity;
-        acceleration = Vector2.zero;
+            rBody.velocity = velocity;
+            acceleration = Vector2.zero;
+        }
 
 	}
 
@@ -113,5 +136,16 @@ public class Paw : MonoBehaviour {
         }
 
         return Seek(closest.transform.position);
+    }
+
+    private bool SphereCollision(Vector3 targetPos)
+    {
+        float dx = this.rBody.position.x - targetPos.x;
+        float dy = this.rBody.position.y - targetPos.y;
+        float distance = Mathf.Sqrt((dx * dx) + (dy * dy));
+
+        if (distance < .3)
+            return true;
+        return false;
     }
 }
