@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour {
-
-    private Paw sloth;
+public class Target : MonoBehaviour
+{
     private int levelCount;
     private System.Random rand;
     public GameObject[,] treeGenMatrix;
 
 	// Use this for initialization
 	void Start () {
-        sloth = FindObjectOfType<Paw>();
-        levelCount = sloth.level;
+        levelCount = 0;
         rand = new System.Random();
         treeGenMatrix = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GenerateTree>().treeMatrix;
         MoveTarget();
@@ -42,7 +40,7 @@ public class Target : MonoBehaviour {
             branch = treeGenMatrix[levelCount + 1, 0];
             if(branch.tag == "Branch")
             {
-                this.transform.position = new Vector2(-6.65f, branch.transform.position.y);
+                transform.position = new Vector2(-6.65f, branch.transform.position.y);
             }
         }
         else
@@ -50,7 +48,7 @@ public class Target : MonoBehaviour {
             branch = treeGenMatrix[levelCount + 1, 2];
             if (branch.tag == "Branch")
             {
-                this.transform.position = new Vector2(6.65f, branch.transform.position.y);
+                transform.position = new Vector2(6.65f, branch.transform.position.y);
             }
         }
     }

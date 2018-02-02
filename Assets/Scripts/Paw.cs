@@ -13,9 +13,7 @@ public class Paw : MonoBehaviour {
     private List<GameObject> leaves;
     private Camera cam; //Camera for mouse position and climbing
     private int mouseDownFrameCounter = 120;
-    public int level;
     public GameObject target;
-    public GameObject slothHead;
 
     public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
@@ -32,7 +30,6 @@ public class Paw : MonoBehaviour {
 	void Start () {
         leaves = new List<GameObject>();
         rBody = GetComponent<Rigidbody2D>();
-        level = 0;
         target = GameObject.FindGameObjectWithTag("Player");
         cam = Camera.main;
         //slothHead = gameObject.find
