@@ -28,6 +28,14 @@ public class Target : MonoBehaviour
 
         while(i > 0)
         {
+            //Stupid end of matrix bullshit
+            if (levelCount + i >= 24)
+            {
+                //Reset variables for paw placement
+                levelCount = 0;
+                i = 0;
+            }
+
             //Makes it so the target doesn't default to one side
             int branchCheck = rand.Next(0, 10);
             if (branchCheck % 2 == 0)

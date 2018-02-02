@@ -76,7 +76,7 @@ public class GenerateTree : MonoBehaviour
             treeMatrix[i, 2] = Instantiate(treeMatrix[i, 2]);
         }
         
-        triggerBounds = treeMatrix[23, 1].GetComponent<Renderer>().bounds; //Get the bounds for the trigger
+        triggerBounds = treeMatrix[24, 1].GetComponent<Renderer>().bounds; //Get the bounds for the trigger
     }
 
     //Update is called once per frame
@@ -84,7 +84,7 @@ public class GenerateTree : MonoBehaviour
     {
         //Determine if the object we want is on the screen or not
         //I'd like to use isVisible but it doesn't want to cooperate
-        https://answers.unity.com/questions/8003/how-can-i-know-if-a-gameobject-is-seen-by-a-partic.html
+        //https://answers.unity.com/questions/8003/how-can-i-know-if-a-gameobject-is-seen-by-a-partic.html
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(gameCamera);
         int emptyCount = 0; //The number of empty branches
 
@@ -137,7 +137,7 @@ public class GenerateTree : MonoBehaviour
                 treeMatrix[i, 2] = Instantiate(treeMatrix[i, 2]);
             }
 
-            triggerBounds = treeMatrix[23, 1].GetComponent<Renderer>().bounds; //Get the bounds for the trigger
+            triggerBounds = treeMatrix[24, 1].GetComponent<Renderer>().bounds; //Get the bounds for the trigger
             spacingValue += 25; //Increment the spacing value
         }
 	}

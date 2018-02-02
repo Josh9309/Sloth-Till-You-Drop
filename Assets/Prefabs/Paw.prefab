@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50715306253475912}
   m_Layer: 0
   m_Name: Paw
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799670038498198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.038769, y: -1.0047402, z: -5}
+  m_LocalPosition: {x: 0, y: -1, z: -5}
   m_LocalScale: {x: 0.15323223, y: 0.15323223, z: 0.15323223}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,9 +74,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawSpeed: 20
-  level: 0
-  target: {fileID: 0}
-  slothHead: {fileID: 0}
   mouseWeight: 25
   leafWeight: 19
 --- !u!212 &212039575036068778
@@ -112,7 +109,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: aa7c3c1ee8e411949af9f2f7e7e36598, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

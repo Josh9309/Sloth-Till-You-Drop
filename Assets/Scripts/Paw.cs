@@ -13,7 +13,9 @@ public class Paw : MonoBehaviour {
     private List<GameObject> leaves;
     private Camera cam; //Camera for mouse position and climbing
     private int mouseDownFrameCounter = 120;
-    public GameObject target;
+    private GameObject target;
+    private UnityEngine.UI.Image slothHead;
+    private bool movingCamera;
 
     public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
@@ -32,7 +34,8 @@ public class Paw : MonoBehaviour {
         rBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
         cam = Camera.main;
-        //slothHead = gameObject.find
+        slothHead = FindObjectOfType<UnityEngine.UI.Image>(); //Get the sloth head, there's only ever one.
+        movingCamera = false;
     }
 	
 	// Update is called once per frame
@@ -51,11 +54,13 @@ public class Paw : MonoBehaviour {
 
         if (SphereCollision(target.transform.position) && (mouseDownFrameCounter > 0 && mouseDownFrameCounter < 120))
         {
+            ////Stop the paw from moving
             //ultimateForce = Vector2.zero;
             //rBody.velocity = Vector2.zero;
             //acceleration = Vector2.zero;
 
-            target.GetComponent<Target>().MoveTarget();
+            target.GetComponent<Target>().MoveTarget(); //Move the paw
+            movingCamera = true;
         }
         else
         {
@@ -81,6 +86,11 @@ public class Paw : MonoBehaviour {
             acceleration = Vector2.zero;
         }
 
+        //If the camera should move
+        if (movingCamera)
+        {
+            Climb(); //Move the camera and sloth up
+        }
 	}
 
     /*private void OnDrawGizmosSelected()
@@ -143,8 +153,8 @@ public class Paw : MonoBehaviour {
 
     private bool SphereCollision(Vector3 targetPos)
     {
-        float dx = this.rBody.position.x - targetPos.x;
-        float dy = this.rBody.position.y - targetPos.y;
+        float dx = rBody.position.x - targetPos.x;
+        float dy = rBody.position.y - targetPos.y;
         float distance = Mathf.Sqrt((dx * dx) + (dy * dy));
 
         if (distance < .3)
@@ -155,9 +165,20 @@ public class Paw : MonoBehaviour {
     //Move up the tree
     private void Climb()
     {
-        //Paw
-        //Head
-        //Camera
+        if (cam.transform.position.y < target.transform.position.y)
+        {
+            //Stop the paw from moving
+            ultimateForce = Vector2.zero;
+            rBody.velocity = Vector2.zero;
+            acceleration = Vector2.zero;
 
+            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + .1f, cam.transform.position.z); //Move the camera up
+        }
+        else
+        {
+            //Move the paw up to the same level as the sloth head
+            transform.position = new Vector3(transform.position.x, cam.ScreenToWorldPoint(new Vector3(transform.position.x, slothHead.transform.position.y, transform.position.z)).y, transform.position.z);
+            movingCamera = false;
+        }
     }
 }
