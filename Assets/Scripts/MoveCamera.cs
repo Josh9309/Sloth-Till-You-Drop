@@ -16,7 +16,7 @@ public class MoveCamera : MonoBehaviour
     }
 	
 	//Update is called once per frame
-	void Update()
+	void FixedUpdate()
     {
         //cam.transform.position += new Vector3(Input.GetAxis("Horizontal") * manualSpeed, Input.GetAxis("Vertical") * manualSpeed, 0) * Time.deltaTime; //Manual move
         cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + autoSpeed, cam.transform.position.z); //Move the camera up
