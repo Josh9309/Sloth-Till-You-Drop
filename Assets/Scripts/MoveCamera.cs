@@ -6,8 +6,8 @@ using UnityEngine;
 public class MoveCamera : MonoBehaviour
 {
     private Camera cam;
-    public float manualSpeed = 10;
-    public float autoSpeed = .05f;
+    //public float manualSpeed = 10;
+    //public float autoSpeed = .05f;
 
     //Use this for initialization
     void Start()
@@ -19,6 +19,6 @@ public class MoveCamera : MonoBehaviour
 	void FixedUpdate()
     {
         //cam.transform.position += new Vector3(Input.GetAxis("Horizontal") * manualSpeed, Input.GetAxis("Vertical") * manualSpeed, 0) * Time.deltaTime; //Manual move
-        cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + autoSpeed, cam.transform.position.z); //Move the camera up
+        //cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + autoSpeed, cam.transform.position.z); //Move the camera up
     }
 }
