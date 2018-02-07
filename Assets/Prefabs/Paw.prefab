@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4432455406984508}
   - component: {fileID: 58632082789341370}
+  - component: {fileID: 114993703613613530}
   m_Layer: 9
   m_Name: BranchDetector
   m_TagString: Untagged
@@ -123,6 +124,17 @@ MonoBehaviour:
   arrivalSpeed: 50
   mouseWeight: 10
   leafWeight: 19
+--- !u!114 &114993703613613530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477057493991348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2639f20c5d97804dab4b9977f8673f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212039575036068778
 SpriteRenderer:
   m_ObjectHideFlags: 1
