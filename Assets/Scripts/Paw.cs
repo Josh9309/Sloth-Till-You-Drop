@@ -16,20 +16,18 @@ public class Paw : MonoBehaviour {
     private GameObject target;
     private UnityEngine.UI.Image slothHead;
     private bool movingCamera;
+    private bool onBranch = false;
 
     public float maxSpeed;
     public float arrivalSpeed;
 
     public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
+    public bool OnBranch { get { return OnBranch; } set { onBranch = value; } }
+
     //Weights
     [SerializeField] private float mouseWeight = 1.3f;
     [SerializeField] private float leafWeight = .8f;
-
-    // How close a leaf has to be in order for the paw to seek it
-    //[SerializeField] private float leafNoticeRadius = 5f;
-
-    //[SerializeField] private LeafSpawner spawner;
 
 	// Use this for initialization
 	void Start () {
@@ -44,55 +42,61 @@ public class Paw : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //get current mouse position
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && onBranch)
         {
-            mouseDownFrameCounter--;
+            //mouseDownFrameCounter--;
+            //Stop the paw from moving
+            Debug.Log("Meep");
+            ultimateForce = Vector2.zero;
+            rBody.velocity = Vector2.zero;
+            acceleration = Vector2.zero;
         }
         else
         {
             mouseDownFrameCounter = 120;
-        }
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (SphereCollision(target.transform.position) && (mouseDownFrameCounter > 0 && mouseDownFrameCounter < 120))
-        {
-            ////Stop the paw from moving
-            //ultimateForce = Vector2.zero;
-            //rBody.velocity = Vector2.zero;
-            //acceleration = Vector2.zero;
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            target.GetComponent<Target>().MoveTarget(); //Move the paw
-            movingCamera = true;
-        }
-        else
-        {
-            ultimateForce = Vector2.zero;
+            if (SphereCollision(target.transform.position) && (mouseDownFrameCounter > 0 && mouseDownFrameCounter < 120))
+            {
+                ////Stop the paw from moving
+                //ultimateForce = Vector2.zero;
+                //rBody.velocity = Vector2.zero;
+                //acceleration = Vector2.zero;
 
-            //get seek force to mouse
-            ultimateForce += Arrive(mousePos, arrivalSpeed) * mouseWeight;
+                target.GetComponent<Target>().MoveTarget(); //Move the paw
+                movingCamera = true;
+            }
+            else
+            {
+                ultimateForce = Vector2.zero;
 
-            //Get force to any leafs
-            if (leaves.Count > 0)
-                ultimateForce += LeafForce() * leafWeight;
+                //get seek force to mouse
+                ultimateForce += Arrive(mousePos, arrivalSpeed) * mouseWeight;
 
-            //Limit steering force
-            ultimateForce = Vector2.ClampMagnitude(ultimateForce, maxSpeed);
+                //Get force to any leafs
+                if (leaves.Count > 0)
+                    ultimateForce += LeafForce() * leafWeight;
 
-            //apply acceleration 
-            acceleration = acceleration + (ultimateForce / rBody.mass);
+                //Limit steering force
+                ultimateForce = Vector2.ClampMagnitude(ultimateForce, maxSpeed);
 
-            velocity += acceleration * Time.deltaTime;
-            velocity = Vector2.ClampMagnitude(velocity, pawSpeed);
+                //apply acceleration 
+                acceleration = acceleration + (ultimateForce / rBody.mass);
 
-            rBody.velocity = velocity;
-            acceleration = Vector2.zero;
-        }
+                velocity += acceleration * Time.deltaTime;
+                velocity = Vector2.ClampMagnitude(velocity, pawSpeed);
 
-        //If the camera should move
-        if (movingCamera)
-        {
-            Climb(); //Move the camera and sloth up
+                rBody.velocity = velocity;
+                acceleration = Vector2.zero;
+            }
+
+            //If the camera should move
+            if (movingCamera)
+            {
+                Climb(); //Move the camera and sloth up
+            }
         }
 	}
 
