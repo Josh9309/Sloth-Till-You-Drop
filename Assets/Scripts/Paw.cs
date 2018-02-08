@@ -17,6 +17,7 @@ public class Paw : MonoBehaviour {
     private UnityEngine.UI.Image slothHead;
     private bool movingCamera;
     private bool onBranch = false;
+    private bool grabbing = false;
 
     public float maxSpeed;
     public float arrivalSpeed;
@@ -24,6 +25,9 @@ public class Paw : MonoBehaviour {
     public List<GameObject> Leaves { get { return leaves; } set { leaves = value; } }
 
     public bool OnBranch { get { return OnBranch; } set { onBranch = value; } }
+
+    // world tether joint
+    [SerializeField] HingeJoint2D tetherJoint;
 
     //Weights
     [SerializeField] private float mouseWeight = 1.3f;
@@ -41,15 +45,19 @@ public class Paw : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //get current mouse position
+
+        // determine if the player has grabbed a branch
         if (Input.GetMouseButton(0) && onBranch)
+            grabbing = true;
+
+        if (grabbing)
         {
             //mouseDownFrameCounter--;
             //Stop the paw from moving
-            Debug.Log("Meep");
-            ultimateForce = Vector2.zero;
-            rBody.velocity = Vector2.zero;
-            acceleration = Vector2.zero;
+            // ultimateForce = Vector2.zero;
+            // rBody.velocity = Vector2.zero;
+            // acceleration = Vector2.zero;
+            tetherJoint.enabled = true;
         }
         else
         {
