@@ -14,7 +14,6 @@ public class Paw : MonoBehaviour {
     private Camera cam; //Camera for mouse position and climbing
     private int mouseDownFrameCounter = 120;
     private GameObject target;
-    private UnityEngine.UI.Image slothHead;
     private bool movingCamera;
     private bool onBranch = false;
     private bool grabbing = false;
@@ -33,86 +32,75 @@ public class Paw : MonoBehaviour {
     [SerializeField] private float mouseWeight = 1.3f;
     [SerializeField] private float leafWeight = .8f;
 
+    private GameManager gameMan;
 	// Use this for initialization
 	void Start () {
         leaves = new List<GameObject>();
         rBody = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
         cam = Camera.main;
-        slothHead = FindObjectOfType<UnityEngine.UI.Image>(); //Get the sloth head, there's only ever one.
         movingCamera = false;
+
+        gameMan = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        // determine if the player has grabbed a branch
-        if (Input.GetMouseButton(0) && onBranch)
-            grabbing = true;
-
-        if (grabbing)
+        switch(gameMan.gameState)
         {
-            //mouseDownFrameCounter--;
-            //Stop the paw from moving
-            // ultimateForce = Vector2.zero;
-            // rBody.velocity = Vector2.zero;
-            // acceleration = Vector2.zero;
-            tetherJoint.enabled = true;
+            case GameState.LAUNCHMODE:
+                //LaunchModeUpdate();
+                break;
+
+            case GameState.PAWMODE:
+                PawModeUpdate();
+                break;
+        }
+        
+	}
+
+    private void PawModeUpdate()
+    {
+        
+        mouseDownFrameCounter = 120;
+
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButton(0) && onBranch)
+        {
+            gameMan.SwitchToLaunch();
         }
         else
         {
-            mouseDownFrameCounter = 120;
+            ultimateForce = Vector2.zero;
 
+            //get seek force to mouse
+            ultimateForce += Arrive(mousePos, arrivalSpeed) * mouseWeight;
 
-            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            //Get force to any leafs
+            if (leaves.Count > 0)
+                ultimateForce += LeafForce() * leafWeight;
 
-            if (SphereCollision(target.transform.position) && (mouseDownFrameCounter > 0 && mouseDownFrameCounter < 120))
-            {
-                ////Stop the paw from moving
-                //ultimateForce = Vector2.zero;
-                //rBody.velocity = Vector2.zero;
-                //acceleration = Vector2.zero;
+            //Limit steering force
+            ultimateForce = Vector2.ClampMagnitude(ultimateForce, maxSpeed);
 
-                target.GetComponent<Target>().MoveTarget(); //Move the paw
-                movingCamera = true;
-            }
-            else
-            {
-                ultimateForce = Vector2.zero;
+            //apply acceleration 
+            acceleration = acceleration + (ultimateForce / rBody.mass);
 
-                //get seek force to mouse
-                ultimateForce += Arrive(mousePos, arrivalSpeed) * mouseWeight;
+            velocity += acceleration * Time.deltaTime;
+            velocity = Vector2.ClampMagnitude(velocity, pawSpeed);
 
-                //Get force to any leafs
-                if (leaves.Count > 0)
-                    ultimateForce += LeafForce() * leafWeight;
-
-                //Limit steering force
-                ultimateForce = Vector2.ClampMagnitude(ultimateForce, maxSpeed);
-
-                //apply acceleration 
-                acceleration = acceleration + (ultimateForce / rBody.mass);
-
-                velocity += acceleration * Time.deltaTime;
-                velocity = Vector2.ClampMagnitude(velocity, pawSpeed);
-
-                rBody.velocity = velocity;
-                acceleration = Vector2.zero;
-            }
-
-            //If the camera should move
-            if (movingCamera)
-            {
-                //Climb(); //Move the camera and sloth up
-            }
+            rBody.velocity = velocity;
+            acceleration = Vector2.zero;
         }
-	}
+    }
 
-    /*private void OnDrawGizmosSelected()
+    private void LaunchModeUpdate()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, leafNoticeRadius);
-    }*/
+
+    }
 
     private Vector2 Seek(Vector3 target)
     {
@@ -177,23 +165,10 @@ public class Paw : MonoBehaviour {
         return false;
     }
 
-    //Move up the tree
-    private void Climb()
-    {
-        if (cam.transform.position.y < target.transform.position.y)
-        {
-            //Stop the paw from moving
-            ultimateForce = Vector2.zero;
-            rBody.velocity = Vector2.zero;
-            acceleration = Vector2.zero;
-
-            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + .1f, cam.transform.position.z); //Move the camera up
-        }
-        else
-        {
-            //Move the paw up to the same level as the sloth head
-            transform.position = new Vector3(transform.position.x, cam.ScreenToWorldPoint(new Vector3(transform.position.x, slothHead.transform.position.y, transform.position.z)).y, transform.position.z);
-            movingCamera = false;
-        }
-    }
 }
+
+
+
+
+
+//
