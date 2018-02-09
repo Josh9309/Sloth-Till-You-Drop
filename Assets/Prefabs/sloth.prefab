@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114854615589162362}
   m_Layer: 9
   m_Name: BranchDetector
-  m_TagString: Untagged
+  m_TagString: BranchDetective
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114387190738284888}
   - component: {fileID: 233331376400683406}
   - component: {fileID: 233790583659187932}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: tether
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 114500316256099652}
   m_Layer: 9
   m_Name: BranchDetector
-  m_TagString: Untagged
+  m_TagString: BranchDetective
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 114740525588451218}
   - component: {fileID: 233986174627253084}
   - component: {fileID: 233320930162179104}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: tether
   m_TagString: Untagged
   m_Icon: {fileID: 0}

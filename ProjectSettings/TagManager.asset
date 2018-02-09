@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Branch
   - Head
+  - BranchDetective
   layers:
   - Default
   - TransparentFX

@@ -103,7 +103,7 @@ public class Paw : MonoBehaviour {
             //If the camera should move
             if (movingCamera)
             {
-                Climb(); //Move the camera and sloth up
+                //Climb(); //Move the camera and sloth up
             }
         }
 	}
