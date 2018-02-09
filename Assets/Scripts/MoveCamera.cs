@@ -25,9 +25,9 @@ public class MoveCamera : MonoBehaviour
     }
 
     //Death
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        if (collision.gameObject.tag == "Head")
+        if (collider.gameObject.tag == "BranchDetective")
         {
             Debug.Log("YOU HAVE FUCKED UP");
         }
