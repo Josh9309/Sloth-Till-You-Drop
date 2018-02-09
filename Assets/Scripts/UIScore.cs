@@ -26,8 +26,12 @@ public class UIScore : MonoBehaviour
 
         //If the sloth has died
         if (cameraScript.SlothHasDied)
+        {
             for (int i = 0; i < 2; i++)
                 gameOvers[i].enabled = true; //Enable the game over text
+
+            Time.timeScale = 0; //Pause the game
+        }
     }
 
     //Read the high score from the file
