@@ -154,6 +154,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &584058288 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1008462107356218, guid: 88d242b4ff48e9f4aa8873a4d66f4007,
+    type: 2}
+  m_PrefabInternal: {fileID: 498429318}
 --- !u!1001 &685037036
 Prefab:
   m_ObjectHideFlags: 0
@@ -197,7 +202,7 @@ Prefab:
         type: 2}
       propertyPath: sloth
       value: 
-      objectReference: {fileID: 1575813217}
+      objectReference: {fileID: 584058288}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57e0a1e024b8321408c19f1f33c6f587, type: 2}
   m_IsPrefabParent: 0
@@ -373,11 +378,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d017ca7a44808243abf5f49076d2166, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1575813217 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1064755217147784, guid: 88d242b4ff48e9f4aa8873a4d66f4007,
-    type: 2}
-  m_PrefabInternal: {fileID: 498429318}
 --- !u!1001 &1742357190
 Prefab:
   m_ObjectHideFlags: 0
