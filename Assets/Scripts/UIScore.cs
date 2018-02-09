@@ -7,20 +7,28 @@ using System.IO; //Using file input and output
 public class UIScore : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Text scoreValue; //The score being displayed
+    [SerializeField] private UnityEngine.UI.Text[] gameOvers = new UnityEngine.UI.Text[2]; //Game over text
     private int highscore;
     private Camera gameCamera;
+    private MoveCamera cameraScript;
 
 	//Use this for initialization
 	void Start()
     {
         gameCamera = FindObjectOfType<Camera>(); //Get the camera, there should only be one in the scene
+        cameraScript = gameCamera.GetComponent<MoveCamera>();
     }
 	
 	//Update is called once per frame
 	void Update()
     {
         scoreValue.text = ((int)gameCamera.transform.position.y).ToString();  //Calculate the score
-	}
+
+        //If the sloth has died
+        if (cameraScript.SlothHasDied)
+            for (int i = 0; i < 2; i++)
+                gameOvers[i].enabled = true; //Enable the game over text
+    }
 
     //Read the high score from the file
     void ReadHighScore()

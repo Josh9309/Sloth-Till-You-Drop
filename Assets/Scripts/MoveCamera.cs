@@ -7,12 +7,19 @@ public class MoveCamera : MonoBehaviour
 {
     private Camera cam;
     [SerializeField] private GameObject sloth;
+    private bool slothHasDied;
     //public float manualSpeed = 10;
+
+    public bool SlothHasDied
+    {
+        get { return slothHasDied; }
+    }
 
     //Use this for initialization
     void Start()
     {
         cam = gameObject.GetComponent<Camera>();
+        slothHasDied = false;
     }
 
     void FixedUpdate()
@@ -29,7 +36,7 @@ public class MoveCamera : MonoBehaviour
     {
         if (collider.gameObject.tag == "BranchDetective")
         {
-            Debug.Log("YOU HAVE FUCKED UP");
+            slothHasDied = true;
         }
     }
 }
