@@ -117,37 +117,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1064755217147784, guid: 88d242b4ff48e9f4aa8873a4d66f4007,
     type: 2}
   m_PrefabInternal: {fileID: 498429318}
---- !u!114 &61910570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 61910567}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcb92f5bda8f0841a19b561d1e759b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  launchSpeed: 500000
-  maxSpeed: 300000
-  arrivalSpeed: 500000
-  launchWeight: 80
-  mouseCol: {fileID: 0}
---- !u!58 &61910572
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 61910567}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0000004172325, y: -0.0000038146973}
-  serializedVersion: 2
-  m_Radius: 6.7949996
 --- !u!1001 &498429318
 Prefab:
   m_ObjectHideFlags: 0
@@ -187,20 +156,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1546037811352798, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
-      propertyPath: m_Name
-      value: rightPaw
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080642014061586, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
-      propertyPath: m_Name
-      value: leftPaw
-      objectReference: {fileID: 0}
-    - target: {fileID: 1253755640817652, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114284277741691468, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &685037036
