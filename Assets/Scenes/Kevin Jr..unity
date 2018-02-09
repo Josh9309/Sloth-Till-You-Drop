@@ -125,7 +125,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4320027523725382, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.45
+      value: -2.72
       objectReference: {fileID: 0}
     - target: {fileID: 4320027523725382, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
       propertyPath: m_LocalPosition.z
@@ -150,22 +150,6 @@ Prefab:
     - target: {fileID: 4320027523725382, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1546037811352798, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1080642014061586, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1008462107356218, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
-      propertyPath: m_TagString
-      value: BranchDetective
-      objectReference: {fileID: 0}
-    - target: {fileID: 1253755640817652, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
-      propertyPath: m_TagString
-      value: BranchDetective
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88d242b4ff48e9f4aa8873a4d66f4007, type: 2}
@@ -211,9 +195,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114154544863279732, guid: 57e0a1e024b8321408c19f1f33c6f587,
         type: 2}
-      propertyPath: autoSpeed
-      value: 0.02
-      objectReference: {fileID: 0}
+      propertyPath: sloth
+      value: 
+      objectReference: {fileID: 1575813217}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57e0a1e024b8321408c19f1f33c6f587, type: 2}
   m_IsPrefabParent: 0
@@ -389,6 +373,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d017ca7a44808243abf5f49076d2166, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1575813217 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1064755217147784, guid: 88d242b4ff48e9f4aa8873a4d66f4007,
+    type: 2}
+  m_PrefabInternal: {fileID: 498429318}
 --- !u!1001 &1742357190
 Prefab:
   m_ObjectHideFlags: 0
