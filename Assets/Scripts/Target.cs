@@ -29,7 +29,7 @@ public class Target : MonoBehaviour
         while(i > 0)
         {
             //Stupid end of matrix bullshit
-            if (levelCount + i >= 24)
+            if (levelCount + i >= 3)
             {
                 //Reset variables for paw placement
                 levelCount = 0;
