@@ -33,7 +33,6 @@ public class Launch : MonoBehaviour {
 
         if (Input.GetMouseButton(0) && clickedOn)
         {
-            Debug.Log("GALDFSgkla;gk");
             ultimateForce = Vector2.zero;
 
             //get seek force to mouse
