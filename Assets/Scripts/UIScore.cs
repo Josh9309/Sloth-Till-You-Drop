@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO; //Using file input and output
 
 //Tally up the player's score as they play the game and display it to them
@@ -8,6 +9,7 @@ public class UIScore : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Text scoreValue; //The score being displayed
     [SerializeField] private UnityEngine.UI.Text[] gameOvers = new UnityEngine.UI.Text[2]; //Game over text
+    [SerializeField] private UnityEngine.UI.Button[] gameOverButtons = new UnityEngine.UI.Button[2]; //Game over buttons
     private int highscore;
     private Camera gameCamera;
     private MoveCamera cameraScript;
@@ -28,9 +30,10 @@ public class UIScore : MonoBehaviour
         if (cameraScript.SlothHasDied)
         {
             for (int i = 0; i < 2; i++)
+            {
                 gameOvers[i].enabled = true; //Enable the game over text
-
-            Time.timeScale = 0; //Pause the game
+                gameOverButtons[i].gameObject.SetActive(true); //Enable the game over buttons
+            }
         }
     }
 
@@ -54,5 +57,17 @@ public class UIScore : MonoBehaviour
         StreamWriter fileWriter = new StreamWriter("Assets\\Data\\highscore.bin"); //Double slash for file path escape sequence
         fileWriter.Write(scoreValue.text);
         fileWriter.Close(); //Close the StreamWriter
+    }
+
+    //Load a new scene when a UI button is pressed
+    public void UILoadNewScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName); //Load the new scene
+    }
+
+    //Reload the scene when a UI button is pressed
+    public void UIReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); //Reload the scene
     }
 }
