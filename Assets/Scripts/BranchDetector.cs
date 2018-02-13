@@ -18,13 +18,23 @@ public class BranchDetector : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+
         if (collision.tag == "Branch")
+        {
+            Debug.Log("Entering collision with " + collision.gameObject.name);
             pawScript.OnBranch = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "Branch")
+
+
+        if (collision.tag == "Branch")
+        {
+            Debug.Log("Leaving collsion with " + collision.gameObject.name);
             pawScript.OnBranch = false;
+        }
     }
 }

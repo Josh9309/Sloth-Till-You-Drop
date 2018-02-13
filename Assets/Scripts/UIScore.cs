@@ -8,15 +8,9 @@ using UnityEngine.UI;
 //Tally up the player's score as they play the game and display it to them
 public class UIScore : MonoBehaviour
 {
-<<<<<<< HEAD
-    [SerializeField] private Text scoreValue; //The score being displayed
-    [SerializeField] private Text[] gameOvers = new UnityEngine.UI.Text[2]; //Game over text
-    [SerializeField] private GameObject restart;
-=======
     [SerializeField] private UnityEngine.UI.Text scoreValue; //The score being displayed
     [SerializeField] private UnityEngine.UI.Text[] gameOvers = new UnityEngine.UI.Text[2]; //Game over text
     [SerializeField] private UnityEngine.UI.Button[] gameOverButtons = new UnityEngine.UI.Button[2]; //Game over buttons
->>>>>>> 3272e44bfa1b72ae6d2c7de68ad23a8c8981523d
     private int highscore;
     private Camera gameCamera;
     private MoveCamera cameraScript;
@@ -39,15 +33,9 @@ public class UIScore : MonoBehaviour
             for (int i = 0; i < 2; i++)
             {
                 gameOvers[i].enabled = true; //Enable the game over text
-<<<<<<< HEAD
 
-            restart.SetActive(true);
-
-            Time.timeScale = 0; //Pause the game
-=======
                 gameOverButtons[i].gameObject.SetActive(true); //Enable the game over buttons
             }
->>>>>>> 3272e44bfa1b72ae6d2c7de68ad23a8c8981523d
         }
     }
 

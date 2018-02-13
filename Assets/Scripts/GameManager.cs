@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour {
         tethers[1] = GameObject.Find("leftPaw").GetComponents<HingeJoint2D>()[1];
 
         SwitchToLaunch();
+
+        // lock cursor to screen
+        Cursor.lockState = CursorLockMode.Confined;
 	}
 	
 	// Update is called once per frame
