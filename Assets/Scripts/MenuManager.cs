@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
-    public Button startBtn;
-
 	// Use this for initialization
 	void Start () {
 		

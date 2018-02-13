@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO; //Using file input and output
+using UnityEngine.UI;
 
 //Tally up the player's score as they play the game and display it to them
 public class UIScore : MonoBehaviour
 {
-    [SerializeField] private UnityEngine.UI.Text scoreValue; //The score being displayed
-    [SerializeField] private UnityEngine.UI.Text[] gameOvers = new UnityEngine.UI.Text[2]; //Game over text
+    [SerializeField] private Text scoreValue; //The score being displayed
+    [SerializeField] private Text[] gameOvers = new UnityEngine.UI.Text[2]; //Game over text
+    [SerializeField] private GameObject restart;
     private int highscore;
     private Camera gameCamera;
     private MoveCamera cameraScript;
@@ -29,6 +31,8 @@ public class UIScore : MonoBehaviour
         {
             for (int i = 0; i < 2; i++)
                 gameOvers[i].enabled = true; //Enable the game over text
+
+            restart.SetActive(true);
 
             Time.timeScale = 0; //Pause the game
         }
