@@ -437,7 +437,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -497,7 +497,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -557,7 +557,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pawSpeed: 50
   maxSpeed: 30
-  arrivalSpeed: 50
+  arrivalSpeed: 25
   tetherJoint: {fileID: 233790583659187932}
   mouseWeight: 50
   leafWeight: 0.8
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pawSpeed: 50
   maxSpeed: 30
-  arrivalSpeed: 50
+  arrivalSpeed: 25
   tetherJoint: {fileID: 233320930162179104}
   mouseWeight: 50
   leafWeight: 0.8

@@ -113,6 +113,14 @@ public class Paw : MonoBehaviour {
     private Vector2 Arrive(Vector3 target, float slowRadius)
     {
         Vector2 ArrivalForce = target - transform.position;
+
+        // normalize the vector and set it to a constant
+        ArrivalForce.Normalize();
+        ArrivalForce *= 5;
+
+        // for detemining where the arrival force will apply to
+        //Gizmos.DrawWireSphere(ArrivalForce, slowRadius);
+
         if(ArrivalForce.magnitude > slowRadius)
         {
             //outside arival radius which means no reason to slow down

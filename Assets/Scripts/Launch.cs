@@ -94,7 +94,7 @@ public class Launch : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && collision.tag == "MouseTracker")
             clickedOn = true;
     }
 }
