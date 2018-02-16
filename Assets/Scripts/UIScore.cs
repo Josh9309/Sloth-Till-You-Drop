@@ -33,6 +33,19 @@ public class UIScore : MonoBehaviour
             for (int i = 0; i < 2; i++)
             {
                 gameOvers[i].enabled = true; //Enable the game over text
+                gameOvers[i].text = "GAME OVER";
+
+                gameOverButtons[i].gameObject.SetActive(true); //Enable the game over buttons
+            }
+        }
+
+        //If the sloth has won
+        if (cameraScript.SlothHasWon)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                gameOvers[i].enabled = true; //Enable the game over text
+                gameOvers[i].text = "YOU WIN!";
 
                 gameOverButtons[i].gameObject.SetActive(true); //Enable the game over buttons
             }
