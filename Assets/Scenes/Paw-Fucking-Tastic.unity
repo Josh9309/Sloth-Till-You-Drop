@@ -1045,11 +1045,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114154544863279732, guid: 57e0a1e024b8321408c19f1f33c6f587,
         type: 2}
-      propertyPath: autoSpeed
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 114154544863279732, guid: 57e0a1e024b8321408c19f1f33c6f587,
-        type: 2}
       propertyPath: sloth
       value: 
       objectReference: {fileID: 61910567}
@@ -2429,6 +2424,10 @@ Prefab:
     - target: {fileID: 4045987810305696, guid: 2d017ca7a44808243abf5f49076d2166, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291031646255778, guid: 2d017ca7a44808243abf5f49076d2166, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d017ca7a44808243abf5f49076d2166, type: 2}
