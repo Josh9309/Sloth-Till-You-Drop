@@ -8,14 +8,21 @@ public class Launch : MonoBehaviour {
     private Rigidbody2D rBody;
     private CircleCollider2D collider;
 
+    //jank arrow scaling (i know it shouldnt actually go here)
+    public GameObject forceArrow;
+    private Vector3 fullScale;
+    private Vector3 minScale;
+    private float scaleAmount;
+
+
     //steering force
     private Vector2 ultimateForce;
     private Vector2 velocity;
     private Vector2 acceleration;
-    public float launchSpeed = 10.0f;
+    public float launchSpeed;
     public float maxSpeed;
     public float arrivalSpeed;
-    public float launchWeight = 200.0f;
+    public float launchWeight;
     public CircleCollider2D mouseCol;
     private bool clickedOn = false; 
 	// Use this for initialization
@@ -24,6 +31,11 @@ public class Launch : MonoBehaviour {
         collider = GetComponent<CircleCollider2D>();
         rBody = GetComponent<Rigidbody2D>();
         mouseCol = GameObject.Find("mouseTracker").GetComponent<CircleCollider2D>();
+
+        //arrow values
+        fullScale = forceArrow.transform.localScale;
+        minScale = new Vector3(0.4f, 0.4f, 0.4f);
+        scaleAmount = (fullScale.x - minScale.x) / maxSpeed; //scale by constant value, topping off at maxspeed
 	}
 	
 	// Update is called once per frame
@@ -57,6 +69,8 @@ public class Launch : MonoBehaviour {
             //    Vector2 launchForce = launchDirection * launchDirection.magnitude * launchWeight;
 
             //    rBody.AddForce(launchForce, ForceMode2D.Impulse);
+
+            ScaleArrow();
         }
         else if (clickedOn == true)
         {
@@ -95,6 +109,20 @@ public class Launch : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (Input.GetMouseButton(0) && collision.tag == "MouseTracker")
+        {
             clickedOn = true;
+
+            //move arrow here and start scaling
+            forceArrow.transform.position = this.gameObject.transform.position;
+            forceArrow.transform.localScale = minScale;
+        }
+            
+    }
+
+    private void ScaleArrow()
+    {
+        float scaledValue = minScale.x + (velocity.magnitude * scaleAmount);
+        forceArrow.transform.localScale = new Vector3(scaledValue, scaledValue, scaledValue);
+
     }
 }
