@@ -64,7 +64,10 @@ public class GenerateTree : MonoBehaviour
             treeMatrix[i, 2] = Instantiate(rightTreeBranchesPrefab[rightBranchRand], new Vector3(rightTreeBranchesPrefab[rightBranchRand].transform.position.x, (i * stumpSizeY) - stumpSizeY + (rand.Next(-1, 2) * (float)rand.NextDouble()), 0), Quaternion.Euler(0, 0, 180)); //Right branch
             treeMatrix[i, 3] = Instantiate(treeSegmentsPrefab[rightTrunkRand], new Vector3(treeSegmentsPrefab[rightTrunkRand].transform.position.x + 8.6f, (i * stumpSizeY) - stumpSizeY, 0), Quaternion.identity); //Right trunk
         }
-        
+
+        //Always spawn this branch in the same spot
+        Destroy(treeMatrix[2, 1]);
+        treeMatrix[2, 1] = Instantiate(leftTreeBranchesPrefab[0], new Vector3(leftTreeBranchesPrefab[0].transform.position.x, (2 * stumpSizeY) - stumpSizeY, 0), Quaternion.identity); //Left branch
         triggerBounds = treeMatrix[0, 0].GetComponent<Renderer>().bounds; //Get the bounds for the trigger
     }
 
