@@ -59,10 +59,10 @@ public class GenerateTree : MonoBehaviour
             }
 
             //Instantiate the tree
-            treeMatrix[i, 0] = Instantiate(treeSegmentsPrefab[leftTrunkRand], new Vector3(treeSegmentsPrefab[leftTrunkRand].transform.position.x - 8.6f, (i * stumpSizeY) - stumpSizeY, 0), Quaternion.identity); //Left trunk
+            treeMatrix[i, 0] = Instantiate(treeSegmentsPrefab[leftTrunkRand], new Vector3(treeSegmentsPrefab[leftTrunkRand].transform.position.x - 11.94f, (i * stumpSizeY) - stumpSizeY, 0), Quaternion.identity); //Left trunk
             treeMatrix[i, 1] = Instantiate(leftTreeBranchesPrefab[leftBranchRand], new Vector3(leftTreeBranchesPrefab[leftBranchRand].transform.position.x, (i * stumpSizeY) - stumpSizeY + (rand.Next(-1, 2) * (float)rand.NextDouble()), 0), Quaternion.identity); //Left branch
             treeMatrix[i, 2] = Instantiate(rightTreeBranchesPrefab[rightBranchRand], new Vector3(rightTreeBranchesPrefab[rightBranchRand].transform.position.x, (i * stumpSizeY) - stumpSizeY + (rand.Next(-1, 2) * (float)rand.NextDouble()), 0), Quaternion.Euler(0, 0, 180)); //Right branch
-            treeMatrix[i, 3] = Instantiate(treeSegmentsPrefab[rightTrunkRand], new Vector3(treeSegmentsPrefab[rightTrunkRand].transform.position.x + 8.6f, (i * stumpSizeY) - stumpSizeY, 0), Quaternion.identity); //Right trunk
+            treeMatrix[i, 3] = Instantiate(treeSegmentsPrefab[rightTrunkRand], new Vector3(treeSegmentsPrefab[rightTrunkRand].transform.position.x + 11.94f, (i * stumpSizeY) - stumpSizeY, 0), Quaternion.identity); //Right trunk
         }
 
         //Always spawn this branch in the same spot
@@ -104,10 +104,10 @@ public class GenerateTree : MonoBehaviour
             }
 
             //Instantiate the tree
-            treeMatrix[bottomChunk, 0] = Instantiate(treeSegmentsPrefab[leftTrunkRand], new Vector3(treeSegmentsPrefab[leftTrunkRand].transform.position.x - 8.6f, (bottomChunk * stumpSizeY) + (spacingValue * stumpSizeY), 0), Quaternion.identity); //Left trunk
+            treeMatrix[bottomChunk, 0] = Instantiate(treeSegmentsPrefab[leftTrunkRand], new Vector3(treeSegmentsPrefab[leftTrunkRand].transform.position.x - 11.94f, (bottomChunk * stumpSizeY) + (spacingValue * stumpSizeY), 0), Quaternion.identity); //Left trunk
             treeMatrix[bottomChunk, 1] = Instantiate(leftTreeBranchesPrefab[leftBranchRand], new Vector3(leftTreeBranchesPrefab[leftBranchRand].transform.position.x, (bottomChunk * stumpSizeY) + (spacingValue * stumpSizeY) + (rand.Next(-1, 2) * (float)rand.NextDouble()), 0), Quaternion.identity); //Left branch
             treeMatrix[bottomChunk, 2] = Instantiate(rightTreeBranchesPrefab[rightBranchRand], new Vector3(rightTreeBranchesPrefab[rightBranchRand].transform.position.x, (bottomChunk * stumpSizeY) + (spacingValue * stumpSizeY) + (rand.Next(-1, 2) * (float)rand.NextDouble()), 0), Quaternion.Euler(0, 0, 180)); //Right branch
-            treeMatrix[bottomChunk, 3] = Instantiate(treeSegmentsPrefab[rightTrunkRand], new Vector3(treeSegmentsPrefab[rightTrunkRand].transform.position.x + 8.6f, (bottomChunk * stumpSizeY) + (spacingValue * stumpSizeY), 0), Quaternion.identity); //Right trunk
+            treeMatrix[bottomChunk, 3] = Instantiate(treeSegmentsPrefab[rightTrunkRand], new Vector3(treeSegmentsPrefab[rightTrunkRand].transform.position.x + 11.94f, (bottomChunk * stumpSizeY) + (spacingValue * stumpSizeY), 0), Quaternion.identity); //Right trunk
 
             bottomChunk++;
 
