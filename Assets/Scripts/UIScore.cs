@@ -25,7 +25,7 @@ public class UIScore : MonoBehaviour
 	//Update is called once per frame
 	void Update()
     {
-        scoreValue.text = ((int)gameCamera.transform.position.y).ToString();  //Calculate the score
+        scoreValue.text = ((int)gameCamera.transform.position.y - 2).ToString();  //Calculate the score
 
         //If the sloth has died
         if (cameraScript.SlothHasDied)
